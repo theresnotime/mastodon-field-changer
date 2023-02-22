@@ -10,6 +10,7 @@ import moods
 
 
 def do_update(dry_run: bool = False) -> None:
+    """Update Mastodon account fields with a random mood"""
     urlreg = re.compile('href="(?P<url>.*?)"')
     mastodon = Mastodon(access_token=config.ACCESS_TOKEN, api_base_url=config.API_URL)
     me = mastodon.account_verify_credentials()
