@@ -3,9 +3,9 @@ import random
 import re
 import sys
 
+import config
 from mastodon import Mastodon
 
-import config
 import moods
 
 
