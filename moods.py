@@ -14,4 +14,5 @@ MOOD_LIST = [
     "Mooooood 🐄",
     "Here I am, brain the size of a planet, and they ask me to update their mastodon profile.",
     "Mah Nà Mah Nà",
+    "Submit a PR",
 ]
