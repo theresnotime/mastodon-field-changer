@@ -8,4 +8,5 @@ MOOD_LIST = [
     "Surprised that this works tbh",
     "Marveling at the mastodon API",
     "Thinking of better moods to add to this list",
+    "Oh no, someone submitted this mood to my list!"
 ]
