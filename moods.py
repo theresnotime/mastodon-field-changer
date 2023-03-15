@@ -9,4 +9,9 @@ MOOD_LIST = [
     "Marveling at the mastodon API",
     "Thinking of better moods to add to this list",
     "Oh no, someone submitted this mood to my list!",
+    "booM",
+    "Mood!",
+    "Mooooood 🐄",
+    "Here I am, brain the size of a planet, and they ask me to update their mastodon profile.",
+    "Mah Nà Mah Nà",
 ]
