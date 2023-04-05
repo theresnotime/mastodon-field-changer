@@ -18,4 +18,11 @@ MOOD_LIST = [
     "evil",
     "meow",
     "zzzzzzzzzz",
+    "now breathing consciously",
+    "now blinking consciously",
+    "*whistles innocently*",
+    "reticulating splines",
+    r"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-MOOD!$H+H*",
+    "[object Object]",
+    "~nyaaaa",
 ]
