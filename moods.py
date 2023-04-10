@@ -25,4 +25,5 @@ MOOD_LIST = [
     r"X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-MOOD!$H+H*",
     "[object Object]",
     "~nyaaaa",
+    "OwO notices ur https://tnt.tools/ghmfc",
 ]
