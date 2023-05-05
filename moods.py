@@ -30,5 +30,5 @@ MOOD_LIST = [
     "am gay uwu",
     "foxes? in this brain? it's more likely than you think",
     "Right now, I'm just looking at your profile.",
-    "🥺👉👈"
+    "🥺👉👈",
 ]
