@@ -3,10 +3,21 @@ import random
 import re
 import sys
 
-import config
 from mastodon import Mastodon
 
+import config
 import moods
+
+
+def write_status(mood: str, dry_run: bool = False) -> None:
+    """Write a status to Mastodon"""
+    mastodon = Mastodon(access_token=config.ACCESS_TOKEN_2, api_base_url=config.API_URL)
+    if dry_run is False:
+        # Post
+        mastodon.toot(mood)
+        print(f"Posted {mood}")
+    else:
+        print(f"Dry run, would have posted {mood}")
 
 
 def do_update(dry_run: bool = False) -> None:
@@ -40,6 +51,8 @@ def do_update(dry_run: bool = False) -> None:
         print(f"Updated! You were {mood} today :)")
     else:
         print(f"Dry run, fields would be: \n{fields}")
+
+    write_status(mood, dry_run)
 
 
 if __name__ == "__main__":
