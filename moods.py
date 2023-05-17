@@ -33,5 +33,5 @@ MOOD_LIST = [
     "🥺👉👈",
     "Not involved in human trafficking",
     "100% asbestos-free",
-    "voted \"Cutest Cat Ears\" this side of the Atlantic",
+    'voted "Cutest Cat Ears" this side of the Atlantic',
 ]

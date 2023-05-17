@@ -1,12 +1,10 @@
+import config
 import getopt
+import moods
 import random
 import re
 import sys
-
 from mastodon import Mastodon
-
-import config
-import moods
 
 
 def write_status(mood: str, dry_run: bool = False) -> None:
