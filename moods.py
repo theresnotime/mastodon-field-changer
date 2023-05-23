@@ -32,6 +32,7 @@ MOOD_LIST = [
     "Right now, I'm just looking at your profile.",
     "🥺👉👈",
     "Not involved in human trafficking",
+    "training foxes to edit Wikipedia",
     "100% asbestos-free",
     'voted "Cutest Cat Ears" this side of the Atlantic',
 ]
