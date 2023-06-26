@@ -35,4 +35,5 @@ MOOD_LIST = [
     "training foxes to edit Wikipedia",
     "100% asbestos-free",
     'voted "Cutest Cat Ears" this side of the Atlantic',
+    "does not fulfill a structural need",
 ]
