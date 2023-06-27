@@ -50,7 +50,7 @@ def do_update(dry_run: bool = False) -> None:
     else:
         print(f"Dry run, fields would be: \n{fields}")
 
-    write_status(mood, dry_run)
+    # write_status(mood, dry_run)
 
 
 if __name__ == "__main__":
