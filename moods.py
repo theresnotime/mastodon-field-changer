@@ -36,4 +36,5 @@ MOOD_LIST = [
     "100% asbestos-free",
     'voted "Cutest Cat Ears" this side of the Atlantic',
     "does not fulfill a structural need",
+    "Wololo 🙏",
 ]
