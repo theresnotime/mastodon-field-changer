@@ -37,4 +37,5 @@ MOOD_LIST = [
     'voted "Cutest Cat Ears" this side of the Atlantic',
     "does not fulfill a structural need",
     "Wololo 🙏",
+    "is not oomf",
 ]
