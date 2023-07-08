@@ -38,4 +38,5 @@ MOOD_LIST = [
     "does not fulfill a structural need",
     "Wololo 🙏",
     "is not oomf",
+    "thinking about bees"
 ]
