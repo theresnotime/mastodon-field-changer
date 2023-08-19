@@ -1,3 +1,5 @@
+import random
+
 MOOD_LIST = [
     "Contemplating Python",
     "Looking at PHP",
@@ -45,6 +47,20 @@ MOOD_LIST = [
         "label": "Fact",
         "content": "Foxes are just cat software running on dog hardware.",
     },
+    "not plotting the next evil scheme for the Fox Cabal",
+    "[fox screm]",
+    "looking at a blåhaj",
+    "looking at a gay blåhaj",
+    {
+        "label": "Gay",
+        "content": "Yes",
+    },
+    {
+        "label": "Snoot boops today",
+        "content": str(random.randint(1, 20)),
+    },
+    "See https://en.wikipedia.org/wiki/Help:Magic_words",
+    ":3",
     {
         "label": "Fun Fact",
         "content": "I'm not a catgirl :3",
