@@ -57,7 +57,7 @@ MOOD_LIST = [
     },
     {
         "label": "Snoot boops today",
-        "content": str(random.randint(1,20)),
+        "content": str(random.randint(1, 20)),
     },
     "See https://en.wikipedia.org/wiki/Help:Magic_words",
     ":3",
