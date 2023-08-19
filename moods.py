@@ -1,8 +1,6 @@
 MOOD_LIST = [
-    "Happy",
     "Contemplating Python",
     "Looking at PHP",
-    "I'm here aren't I?",
     "Incoherent screaming",
     "AAAAAAAAAAAAAAAAAA",
     "Surprised that this works tbh",
@@ -15,6 +13,10 @@ MOOD_LIST = [
     "Here I am, brain the size of a planet, and they ask me to update their mastodon profile.",
     "Mah Nà Mah Nà",
     "Submit a PR",
+    {
+        "label": "insert_label_here",
+        "content": "insert_content_here",
+    },
     "evil",
     "meow",
     "zzzzzzzzzz",
@@ -39,4 +41,8 @@ MOOD_LIST = [
     "Wololo 🙏",
     "is not oomf",
     "thinking about bees",
+    {
+        "label": "Fact",
+        "content": "Foxes are just cat software running on dog hardware.",
+    },
 ]

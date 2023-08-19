@@ -35,12 +35,24 @@ def do_update(dry_run: bool = False) -> None:
     # Get a random mood
     mood = random.choice(moods.MOOD_LIST)
 
+    if isinstance(mood, dict):
+        # If the mood is a dict, it has a label and a content
+        mood_label = mood["label"]
+        mood = mood["content"]
+    elif isinstance(mood, str):
+        # Otherwise, it's just a string
+        mood_label = "Mood"
+    else:
+        # If it's neither a dict nor a string, it's a bad mood
+        mood_label = "Mood"
+        mood = "Bad mood"
+
     # Build the fields
     fields = [
         (me.fields[0]["name"], url),
         (me.fields[1]["name"], me.fields[1]["value"]),
         (me.fields[2]["name"], me.fields[2]["value"]),
-        (me.fields[3]["name"], mood),
+        (mood_label, mood),
     ]
 
     if dry_run is False:
