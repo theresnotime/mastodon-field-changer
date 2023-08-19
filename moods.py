@@ -45,4 +45,21 @@ MOOD_LIST = [
         "label": "Fact",
         "content": "Foxes are just cat software running on dog hardware.",
     },
+    {
+        "label": "Fun Fact",
+        "content": "I'm not a catgirl :3",
+    },
+    "awawawawa",
+    "I'm not a robot, I'm a fox!",
+    "I'm not a fox, I'm a robot!",
+    {
+        "label": "Scoville Heat Units",
+        "content": "1,500,000 SHU",
+    },
+    "What even is a dict",
+    "What even is a list",
+    {
+        "label": "awoooo?",
+        "content": "yes",
+    },
 ]
