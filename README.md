@@ -4,12 +4,21 @@
 Randomly changes a field on [my Mastodon profile](https://wikis.world/@theresnotime).
 
 ## Moods
-Mood strings (?) are defined in [moods.py](moods.py) because I couldn't be bothered to read from a JSON file when this just works. They're a nice simple Python list with a trailing comma to stop `tox` getting upset.
+Mood strings (?) are defined in [moods.py](moods.py) because I couldn't be bothered to read from a JSON file when this just works. They're a nice simple Python list (which can sometimes contain a `dict` if you're feeling spicy) with a trailing comma to stop `tox` getting upset.
 ```py
 MOOD_LIST = [
     "Happy",
     "Contemplating Python",
     "Looking at PHP",
+    {
+        "label": "The label to display",
+        "content": "The content to display",
+    },
+    "nyaa~",
+    {
+        "label": "Fun fact",
+        "content": "I'm not a catgirl :(",
+    },
     "etc.",
 ]
 ```
