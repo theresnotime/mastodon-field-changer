@@ -61,4 +61,21 @@ MOOD_LIST = [
     },
     "See https://en.wikipedia.org/wiki/Help:Magic_words",
     ":3",
+    {
+        "label": "Fun Fact",
+        "content": "I'm not a catgirl :3",
+    },
+    "awawawawa",
+    "I'm not a robot, I'm a fox!",
+    "I'm not a fox, I'm a robot!",
+    {
+        "label": "Scoville Heat Units",
+        "content": "1,500,000 SHU",
+    },
+    "What even is a dict",
+    "What even is a list",
+    {
+        "label": "awoooo?",
+        "content": "yes",
+    },
 ]
