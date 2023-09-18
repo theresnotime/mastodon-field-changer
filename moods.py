@@ -78,4 +78,17 @@ MOOD_LIST = [
         "label": "awoooo?",
         "content": "yes",
     },
+    {
+        "label": "GREEN!",
+        "content": "PURPLE!",
+    },
+    {
+        "label": "Favourite percussion instrument",
+        "content": "EWOULDBLOCK",
+    },
+    {
+        "label": "Traceback (most recent call last):",
+        "content": "IndexError: list index out of range",
+    },
+    "Past tense of moo",
 ]
