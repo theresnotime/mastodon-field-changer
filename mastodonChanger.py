@@ -119,5 +119,4 @@ if __name__ == "__main__":
     for opt, arg in opts:
         if opt in ("-d", "--dry-run"):
             dry_run = True
-    while True:
-        do_update(dry_run)
+    do_update(dry_run)
