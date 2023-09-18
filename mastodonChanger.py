@@ -35,7 +35,7 @@ def filter_moods():
     # Get a list of all moods
     all_moods = moods.MOOD_LIST
     # Copy the list of all moods
-    filtered_moods = all_moods
+    filtered_moods = all_moods.copy()
     # Iterate over all moods
     for mood in all_moods:
         if isinstance(mood, dict):
