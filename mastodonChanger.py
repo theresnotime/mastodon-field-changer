@@ -7,6 +7,16 @@ import sys
 from mastodon import Mastodon
 
 
+def get_used_moods() -> list:
+    with open("used_moods.txt", "r") as f:
+        return f.read().splitlines()
+
+
+def save_used_mood(mood) -> None:
+    with open("used_moods.txt", "a") as f:
+        f.write(f"{mood}\n")
+
+
 def write_status(mood: str, dry_run: bool = False) -> None:
     """Write a status to Mastodon"""
     mastodon = Mastodon(access_token=config.ACCESS_TOKEN_2, api_base_url=config.API_URL)
@@ -16,6 +26,44 @@ def write_status(mood: str, dry_run: bool = False) -> None:
         print(f"Posted {mood}")
     else:
         print(f"Dry run, would have posted {mood}")
+
+
+def filter_moods():
+    """Filters out moods that have been used before"""
+    # Get a list of used moods
+    used_moods = get_used_moods()
+    # Get a list of all moods
+    all_moods = moods.MOOD_LIST
+    # Copy the list of all moods
+    filtered_moods = all_moods.copy()
+    # Iterate over all moods
+    for mood in all_moods:
+        if isinstance(mood, dict):
+            mood_value = mood["content"]
+        else:
+            mood_value = mood
+
+        if str(mood_value) in used_moods:
+            # If the mood has been used before, remove it from the list
+            filtered_moods.remove(mood)
+    if len(filtered_moods) == 0:
+        # If there are no moods left, reset the list of used moods and exit
+        print("Resetting used moods")
+        with open("used_moods.txt", "w") as f:
+            f.write("")
+        exit()
+    return filtered_moods
+
+
+def get_a_mood():
+    """Gets a random, unused mood"""
+    mood = random.choice(filter_moods())
+    if isinstance(mood, dict):
+        mood_value = mood["content"]
+    else:
+        mood_value = mood
+    save_used_mood(mood_value)
+    return mood
 
 
 def do_update(dry_run: bool = False) -> None:
@@ -33,7 +81,7 @@ def do_update(dry_run: bool = False) -> None:
         url = url_match.group("url")
 
     # Get a random mood
-    mood = random.choice(moods.MOOD_LIST)
+    mood = get_a_mood()
 
     if isinstance(mood, dict):
         # If the mood is a dict, it has a label and a content
