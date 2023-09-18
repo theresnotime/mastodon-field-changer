@@ -12,9 +12,9 @@ def get_used_moods() -> list:
         return f.read().splitlines()
 
 
-def save_used_mood(index: int) -> None:
+def save_used_mood(mood) -> None:
     with open("used_moods.txt", "a") as f:
-        f.write(f"{index}\n")
+        f.write(f"{mood}\n")
 
 
 def write_status(mood: str, dry_run: bool = False) -> None:
