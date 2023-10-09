@@ -95,4 +95,11 @@ MOOD_LIST = [
     "fox",
     "fopks",
     "fokps",
+    {
+        "label": "merge",
+        "content": "conflicted"
+    },
+    "eepy",
+    "eepn't",
+    "in 'detached HEAD' state",
 ]
