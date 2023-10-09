@@ -91,4 +91,8 @@ MOOD_LIST = [
         "content": "IndexError: list index out of range",
     },
     "Past tense of moo",
+    "fops",
+    "fox",
+    "fopks",
+    "fokps",
 ]
