@@ -99,4 +99,5 @@ MOOD_LIST = [
     "eepy",
     "eepn't",
     "in 'detached HEAD' state",
+    "Moopsy!",
 ]
