@@ -102,4 +102,8 @@ MOOD_LIST = [
     "Moopsy!",
     "Yassie!",
     "Yaseen",
+    {
+        "label": "Long Kermit!",
+        "content": "36 inches!",
+    },
 ]
