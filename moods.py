@@ -106,4 +106,10 @@ MOOD_LIST = [
         "label": "Long Kermit!",
         "content": "36 inches!",
     },
+    {
+        "label": "Really confuses the thread of conversation",
+        "content": "Top Posting",
+    },
+    "I wonder what this button does...",
+    "Lean, mean, bug-fixing machine!",
 ]
