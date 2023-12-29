@@ -21,6 +21,7 @@ MOOD_LIST = [
     },
     "evil",
     "meow",
+    "woem",
     "zzzzzzzzzz",
     "now breathing consciously",
     "now blinking consciously",
