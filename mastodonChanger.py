@@ -3,6 +3,7 @@ import getopt
 import moods
 import random
 import re
+import requests
 import sys
 from mastodon import Mastodon
 
@@ -66,8 +67,21 @@ def get_a_mood():
     return mood
 
 
+def sharkey_update(fields: list = []) -> None:
+    """Update Sharkey account fields"""
+    url = f"{config.API_URL}/api/i/update"
+    data = []
+    for name, value in fields:
+        value = re.sub(r"</?span>", "", value)
+        data.append({"name": name, "value": value})
+    f = {"fields": data}
+    requests.post(
+        url, json=f, headers={"Authorization": f"Bearer {config.ACCESS_TOKEN}"}
+    )
+
+
 def do_update(dry_run: bool = False) -> None:
-    """Update Mastodon account fields with a random mood"""
+    """Update account fields with a random mood"""
     urlreg = re.compile('href="(?P<url>.*?)"')
     mastodon = Mastodon(access_token=config.ACCESS_TOKEN, api_base_url=config.API_URL)
     me = mastodon.account_verify_credentials()
@@ -105,7 +119,11 @@ def do_update(dry_run: bool = False) -> None:
 
     if dry_run is False:
         # Update the account fields
-        mastodon.account_update_credentials(fields=fields)
+        if config.SHARKEY:
+            sharkey_update(fields)
+        else:
+            mastodon.account_update_credentials(fields=fields)
+
         print(f"Updated! You were {mood} today :)")
     else:
         print(f"Dry run, fields would be: \n{fields}")
