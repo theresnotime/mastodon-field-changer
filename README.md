@@ -19,6 +19,10 @@ MOOD_LIST = [
         "label": "Fun fact",
         "content": "I'm not a catgirl :(",
     },
+    {
+        "label": "Snoot boops today",
+        "content": str(random.randint(1, 20)),
+    },
     "etc.",
 ]
 ```
