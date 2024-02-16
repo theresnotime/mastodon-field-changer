@@ -1,7 +1,7 @@
 # Mastodon Field Changer
 (best repo name ever)
 
-Randomly changes a field on [my Mastodon profile](https://wikis.world/@theresnotime).
+Randomly changes a field on my fedi profile.
 
 ## Moods
 Mood strings (?) are defined in [moods.py](moods.py) because I couldn't be bothered to read from a JSON file when this just works. They're a nice simple Python list (which can sometimes contain a `dict` if you're feeling spicy) with a trailing comma to stop `tox` getting upset.
