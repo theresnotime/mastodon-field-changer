@@ -3,3 +3,4 @@ venv/
 __pycache__/
 .tox/
 used_moods.txt
+.vscode/
