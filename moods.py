@@ -91,6 +91,19 @@ MOOD_LIST = [
         "label": "Traceback (most recent call last):",
         "content": "IndexError: list index out of range",
     },
+    {
+        "label": "TypeError",
+        "content": "Cannot read property 'undefined' of undefined",
+    },
+    {
+        "label": "Segmentation fault",
+        "content": "(core dumped)",
+    },
+    {
+        "label": "Status: 200 OK",
+        "content": 'Body: { "success": false }',
+    },
+    "has encountered a problem and needs to close",
     "Past tense of moo",
     "fops",
     "fox",
