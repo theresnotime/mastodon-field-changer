@@ -1,5 +1,6 @@
 import config
 import getopt
+import json
 import moods
 import random
 import re
@@ -9,11 +10,13 @@ from mastodon import Mastodon
 
 
 def get_used_moods() -> list:
+    """Get a list of recently used moods"""
     with open("used_moods.txt", "r") as f:
         return f.read().splitlines()
 
 
 def save_used_mood(mood) -> None:
+    """Save a used mood to the text file"""
     with open("used_moods.txt", "a") as f:
         f.write(f"{mood}\n")
 
@@ -29,7 +32,7 @@ def write_status(mood: str, dry_run: bool = False) -> None:
         print(f"Dry run, would have posted {mood}")
 
 
-def filter_moods():
+def filter_moods() -> list:
     """Filters out moods that have been used before"""
     # Get a list of used moods
     used_moods = get_used_moods()
@@ -56,7 +59,7 @@ def filter_moods():
     return filtered_moods
 
 
-def get_a_mood():
+def get_a_mood() -> dict | str:
     """Gets a random, unused mood"""
     mood = random.choice(filter_moods())
     if isinstance(mood, dict):
@@ -70,20 +73,58 @@ def get_a_mood():
 def sharkey_update(fields: list = []) -> None:
     """Update Sharkey account fields"""
     url = f"{config.API_URL}/api/i/update"
+    headers = {
+        "Authorization": f"Bearer {config.ACCESS_TOKEN}",
+        "User-Agent": config.USER_AGENT,
+    }
     data = []
     for name, value in fields:
         value = re.sub(r"</?span>", "", value)
         data.append({"name": name, "value": value})
     f = {"fields": data}
-    requests.post(
-        url, json=f, headers={"Authorization": f"Bearer {config.ACCESS_TOKEN}"}
-    )
+    requests.post(url, json=f, headers=headers)
+
+
+def get_access_token() -> str | None:
+    """Get an oauth access token, needed for Akkoma"""
+    url = f"{config.API_URL}/oauth/token"
+    headers = {"User-Agent": config.USER_AGENT}
+    payload = {
+        "grant_type": "authorization_code",
+        "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+        "client_id": config.AKKOMA_CLIENT_ID,
+        "client_secret": config.AKKOMA_CLIENT_SECRET,
+        "code": config.AKKOMA_CLIENT_CODE,
+    }
+    try:
+        result = requests.post(url, data=payload, headers=headers)
+        data = json.loads(result.text)
+        if data["access_token"] is not None:
+            return data["access_token"]
+        else:
+            raise Exception("Access token not returned")
+    except:
+        # Yes I know, bare except, how icky
+        print("An exception occured whilst trying to get an access token")
 
 
 def do_update(dry_run: bool = False) -> None:
     """Update account fields with a random mood"""
     urlreg = re.compile('href="(?P<url>.*?)"')
-    mastodon = Mastodon(access_token=config.ACCESS_TOKEN, api_base_url=config.API_URL)
+    if config.AKKOMA:
+        # Get an access token first
+        akkoma_token = get_access_token()
+        mastodon = Mastodon(
+            access_token=akkoma_token,
+            api_base_url=config.API_URL,
+            user_agent=config.USER_AGENT,
+        )
+    else:
+        mastodon = Mastodon(
+            access_token=config.ACCESS_TOKEN,
+            api_base_url=config.API_URL,
+            user_agent=config.USER_AGENT,
+        )
     me = mastodon.account_verify_credentials()
     url_match = urlreg.search(me.fields[0]["value"])
 
@@ -124,11 +165,12 @@ def do_update(dry_run: bool = False) -> None:
         else:
             mastodon.account_update_credentials(fields=fields)
 
-        print(f"Updated! You were {mood} today :)")
+        print(f"Updated! You were {mood_label}: {mood} today :)")
     else:
         print(f"Dry run, fields would be: \n{fields}")
 
-    # write_status(mood, dry_run)
+    if config.POST_UPDATE:
+        write_status(mood, dry_run)
 
 
 if __name__ == "__main__":
@@ -137,4 +179,9 @@ if __name__ == "__main__":
     for opt, arg in opts:
         if opt in ("-d", "--dry-run"):
             dry_run = True
+
+    # Quick config check
+    if config.SHARKEY is True and config.AKKOMA is True:
+        # well you made a mistake, didn't you?
+        raise Exception("You can't be running both Sharkey and Akkoma. I hope.")
     do_update(dry_run)

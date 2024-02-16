@@ -1,5 +1,11 @@
-API_URL = ""
-ACCESS_TOKEN = ""
-KNOWN_URL = ""
-ACCESS_TOKEN_2 = ""
-SHARKEY = False
+USER_AGENT = "{your fedi username}, using theresnotime/mastodon-field-changer"
+API_URL = "https://"
+ACCESS_TOKEN = ""  # Needs perms to read/write account info
+KNOWN_URL = "https://www.theresnotime.co.uk"
+ACCESS_TOKEN_2 = ""  # Needs perms to post statuses
+POST_UPDATE = False  # Post a status update when the mood changes
+SHARKEY = False  # Is this a Sharkey instance?
+AKKOMA = False  # Is this an Akkoma instance?
+AKKOMA_CLIENT_ID = None  # Akkoma OAUTH stuff
+AKKOMA_CLIENT_SECRET = None  # Akkoma OAUTH stuff
+AKKOMA_CLIENT_CODE = None  # Akkoma OAUTH stuff
