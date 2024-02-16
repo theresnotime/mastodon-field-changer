@@ -59,7 +59,7 @@ def filter_moods() -> list:
     return filtered_moods
 
 
-def get_a_mood() -> dict | str:
+def get_a_mood():
     """Gets a random, unused mood"""
     mood = random.choice(filter_moods())
     if isinstance(mood, dict):
@@ -85,7 +85,7 @@ def sharkey_update(fields: list = []) -> None:
     requests.post(url, json=f, headers=headers)
 
 
-def get_access_token() -> str | None:
+def get_access_token():
     """Get an oauth access token, needed for Akkoma"""
     url = f"{config.API_URL}/oauth/token"
     headers = {"User-Agent": config.USER_AGENT}
