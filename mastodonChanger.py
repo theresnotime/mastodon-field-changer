@@ -158,6 +158,9 @@ def do_update(dry_run: bool = False) -> None:
         (mood_label, mood),
     ]
 
+    if len(me.fields) == 5:
+        fields.append((me.fields[4]["name"], me.fields[4]["value"]))
+
     if dry_run is False:
         # Update the account fields
         if config.SHARKEY:
