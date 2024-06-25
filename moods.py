@@ -126,4 +126,7 @@ MOOD_LIST = [
     },
     "I wonder what this button does...",
     "Lean, mean, bug-fixing machine!",
+    "nuanced",
+    "cuddling Livvy",
+    "cuddling Dani",
 ]
