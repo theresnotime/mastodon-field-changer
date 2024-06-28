@@ -129,4 +129,8 @@ MOOD_LIST = [
     "nuanced",
     "cuddling Livvy",
     "cuddling Dani",
+    {
+        "label": "Currently:",
+        "content:" "Digging",
+    },
 ]
