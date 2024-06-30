@@ -131,6 +131,6 @@ MOOD_LIST = [
     "cuddling Dani",
     {
         "label": "Currently:",
-        "content:" "Digging",
+        "content:": "Digging",
     },
 ]
