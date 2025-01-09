@@ -133,4 +133,6 @@ MOOD_LIST = [
         "label": "Currently:",
         "content": "Digging",
     },
+    "foxxo",
+    "fops",
 ]
