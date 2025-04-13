@@ -2,6 +2,7 @@ import random
 
 MOOD_LIST = [
     "Contemplating Python",
+    "Rid the world of fascism",
     "Looking at PHP",
     "Incoherent screaming",
     "AAAAAAAAAAAAAAAAAA",
