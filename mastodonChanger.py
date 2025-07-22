@@ -150,13 +150,22 @@ def do_update(dry_run: bool = False) -> None:
         mood_label = "Mood"
         mood = "Bad mood"
 
-    # Build the fields
-    fields = [
-        (me.fields[0]["name"], url),
-        (me.fields[1]["name"], me.fields[1]["value"]),
-        (me.fields[2]["name"], me.fields[2]["value"]),
-        (mood_label, mood),
-    ]
+    # Build the fields, this is jank but i cba to fix it right now
+    if len(me.fields) < 5:
+        fields = [
+            (me.fields[0]["name"], url),
+            (me.fields[1]["name"], me.fields[1]["value"]),
+            (me.fields[2]["name"], me.fields[2]["value"]),
+            (mood_label, mood),
+        ]
+    else:
+        fields = [
+            (me.fields[0]["name"], url),
+            (me.fields[1]["name"], me.fields[1]["value"]),
+            (me.fields[2]["name"], me.fields[2]["value"]),
+            (me.fields[3]["name"], me.fields[3]["value"]),
+            (mood_label, mood),
+        ]
 
     if dry_run is False:
         # Update the account fields
